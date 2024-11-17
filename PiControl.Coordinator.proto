@@ -22,17 +22,17 @@ package PiControl.Coordinator;
 // ----- Reading registered accessories -----
 
 message ReadAccessories {
-    PiControl.MessageHeaders headers = 1;
+    required PiControl.MessageHeaders headers = 1;
 }
 
 message Accessory {
     // the id is a UUID strin
-    string id = 1;
-    string name = 2;
+    required string id = 1;
+    required string name = 2;
 }
 
 message Accessories {
-    PiControl.MessageHeaders headers = 1;
+    required PiControl.MessageHeaders headers = 1;
 
     repeated Accessory accesories = 2;
 }
@@ -41,18 +41,18 @@ message Accessories {
 // ----- Reading registered devices -----
 
 message ReadDevices {
-    PiControl.MessageHeaders headers = 1;
+    required PiControl.MessageHeaders headers = 1;
 }
 
 message Device {
-    Accessory accessory = 1;
+    required Accessory accessory = 1;
 
-    string id = 2;
-    string name = 3;
+    required string id = 2;
+    required string name = 3;
 }
 
 message Devices {
-    PiControl.MessageHeaders headers = 1;
+    required PiControl.MessageHeaders headers = 1;
 
     repeated Device devices = 2;
 }
@@ -68,21 +68,21 @@ enum AccessoryAuthenticationMethod {
 }
 
 message RegisterAccessory {
-    PiControl.MessageHeaders        headers                 = 1;
+    required PiControl.MessageHeaders        headers                 = 1;
 
     // the id is a UUID string
-    string                          id                      = 2;
-    string                          name                    = 3;
-    AccessoryAuthenticationMethod   authenticationMethod    = 4;
+    required string                          id                      = 2;
+    required string                          name                    = 3;
+    required AccessoryAuthenticationMethod   authenticationMethod    = 4;
 }
 
 
 // ----- Register Device -----
 
 message RegisterDevice {
-    PiControl.MessageHeaders        headers                 = 1;
+    required PiControl.MessageHeaders        headers                 = 1;
 
-    Accessory                       accessory               = 2;
-    string                          id                      = 3;
-    string                          name                    = 4;
+    required Accessory                       accessory               = 2;
+    required string                          id                      = 3;
+    required string                          name                    = 4;
 }
