@@ -20,5 +20,5 @@ message MessageHeaders {
    // Source contains the topic where a reply should be send to.
    // It depends on the message if y reply is sent or not; if one is
    // send, it is send to this topic.
-   string source = 1;
+   required string source = 1;
 }
