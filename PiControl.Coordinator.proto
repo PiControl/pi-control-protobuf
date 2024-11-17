@@ -14,6 +14,8 @@
  *  limitations under the License.
  */
 
+syntax = "proto3";
+
 import "PiControl.proto";
 
 package PiControl.Coordinator;
