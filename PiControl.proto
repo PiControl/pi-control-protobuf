@@ -16,8 +16,6 @@
 
 syntax = "proto3";
 
-package PiControl;
-
 message MessageHeaders {
    // Source contains the topic where a reply should be send to.
    // It depends on the message whether a reply is sent or not; if one is
