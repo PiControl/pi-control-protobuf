@@ -20,7 +20,75 @@ package PiControl;
 
 message MessageHeaders {
    // Source contains the topic where a reply should be send to.
-   // It depends on the message if y reply is sent or not; if one is
+   // It depends on the message whether a reply is sent or not; if one is
    // send, it is send to this topic.
    string source = 1;
+}
+
+// ----- Reading registered accessories -----
+
+message ReadAccessories {
+    MessageHeaders headers = 1;
+}
+
+message Accessory {
+    // the id is a UUID strin
+    string id = 1;
+    string name = 2;
+}
+
+message Accessories {
+    MessageHeaders headers = 1;
+
+    repeated Accessory accesories = 2;
+}
+
+
+// ----- Reading registered devices -----
+
+message ReadDevices {
+    MessageHeaders headers = 1;
+}
+
+message Device {
+    Accessory accessory = 1;
+
+    string id = 2;
+    string name = 3;
+}
+
+message Devices {
+    MessageHeaders headers = 1;
+
+    repeated Device devices = 2;
+}
+
+
+// ----- Register Accessory -----
+
+enum AccessoryAuthenticationMethod {
+    NONE            = 0;
+    PIN             = 1;
+    PASSWD          = 2;
+    USR_PASSWD      = 3;
+}
+
+message RegisterAccessory {
+    MessageHeaders        headers                 = 1;
+
+    // the id is a UUID string
+    string                          id                      = 2;
+    string                          name                    = 3;
+    AccessoryAuthenticationMethod   authenticationMethod    = 4;
+}
+
+
+// ----- Register Device -----
+
+message RegisterDevice {
+    MessageHeaders        headers                 = 1;
+
+    Accessory                       accessory               = 2;
+    string                          id                      = 3;
+    string                          name                    = 4;
 }
