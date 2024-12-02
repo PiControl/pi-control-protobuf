@@ -38,7 +38,7 @@ message Accessory {
 message Accessories {
     MessageHeaders headers = 1;
 
-    repeated Accessory accesories = 2;
+    repeated Accessory accessories = 2;
 }
 
 
