@@ -31,7 +31,7 @@ message ReadAccessories {
 }
 
 message Accessory {
-    // the id is a UUID strin
+    // the id is a UUID string
     string id = 1;
     string name = 2;
 }
@@ -44,9 +44,11 @@ message Accessories {
 }
 
 
-// ----- Reading registered devices -----
+// ----- Read devices -----
 
-// TOPIC: coordinator/devices
+// TOPICS:
+// - coordinator/devices
+// - accessory/<accId>/available-devices
 message ReadDevices {
     MessageHeaders headers = 1;
 }
@@ -58,7 +60,9 @@ message Device {
     string name = 3;
 }
 
-// TOPIC: controller/<ctrlId>/devices
+// TOPICS:
+// - controller/<ctrlId>/devices
+// - controller/<ctrlId>/<accId>/available-devices
 message Devices {
     MessageHeaders headers = 1;
 
