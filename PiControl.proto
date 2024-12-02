@@ -25,6 +25,7 @@ message MessageHeaders {
 
 // ----- Reading registered accessories -----
 
+// TOPIC: coordinator/accessories
 message ReadAccessories {
     MessageHeaders headers = 1;
 }
@@ -35,6 +36,7 @@ message Accessory {
     string name = 2;
 }
 
+// TOPIC: controller/<ctrlId>/accessories
 message Accessories {
     MessageHeaders headers = 1;
 
@@ -44,6 +46,7 @@ message Accessories {
 
 // ----- Reading registered devices -----
 
+// TOPIC: coordinator/devices
 message ReadDevices {
     MessageHeaders headers = 1;
 }
@@ -55,6 +58,7 @@ message Device {
     string name = 3;
 }
 
+// TOPIC: controller/<ctrlId>/devices
 message Devices {
     MessageHeaders headers = 1;
 
@@ -71,6 +75,7 @@ enum AccessoryAuthenticationMethod {
     USR_PASSWD      = 3;
 }
 
+// TOPIC: coordinator/register-accessory
 message RegisterAccessory {
     MessageHeaders        headers                 = 1;
 
@@ -83,6 +88,7 @@ message RegisterAccessory {
 
 // ----- Register Device -----
 
+// TOPIC: coordinator/register-device
 message RegisterDevice {
     MessageHeaders        headers                 = 1;
 
